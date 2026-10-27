@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7144cd">
+  <meta name="description" content="Write one sentence at a time. Build a complete paragraph and discover mistakes with helpful clues.">
+  <title>Paragraph Studio · Write. Connect. Grow.</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cartoon.css">
+  <link rel="stylesheet" href="sections.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Paragraph Studio home"><span class="brandmark" aria-hidden="true">¶</span><span>Paragraph <strong>Studio</strong><small>ONE SENTENCE. ONE STEP FORWARD.</small></span></a>
+  <div class="header-actions"><span class="saved" id="save-status">Saved on this device</span><button class="sound-toggle" id="sound-btn" type="button" aria-label="Click sounds" aria-pressed="true" title="Mute cute click sounds"><span class="sound-icon" aria-hidden="true">♪</span><span id="sound-label">Sound on</span></button><button class="quiet" id="how-btn"><span aria-hidden="true">?</span> How it works</button><button class="quiet" id="reset-btn">New paragraph</button></div>
+</header>
+<main>
+  <section class="intro">
+    <div class="intro-copy"><div class="eyebrow"><span>✦</span> YOUR HAPPY WRITING PLACE</div><h1>Small sentences.<br><em>Big ideas.</em><span class="title-spark" aria-hidden="true">✧</span></h1><p>Build your paragraph, one sentence at a time.<br class="desktop-br"> A beginning, a middle, and a thoughtful ending.</p><div class="hero-chips" aria-hidden="true"><span>✎ Write</span><span>⌁ Connect</span><span>✦ Grow</span></div></div>
+    <div class="hero-art" aria-hidden="true"><span class="speech-sticker">Your ideas belong here!</span><img src="assets/writing-buddies.svg" width="440" height="270" alt="" class="writing-buddies"><span class="float-star star-one">✦</span><span class="float-star star-two">✧</span><span class="art-caption">One little sentence at a time.</span></div>
+  </section>
+  <section class="topic-row" aria-label="Paragraph details"><label for="topic"><span class="label-icon" aria-hidden="true">✎</span> My topic</label><input id="topic" maxlength="120" placeholder="What would you like to write about?" autocomplete="off"><button id="example-btn" class="text-button">Try an example <span aria-hidden="true">↗</span></button></section>
+  <div class="workspace">
+    <section class="writing-panel card" aria-labelledby="write-heading">
+      <div class="panel-heading"><div><span class="step-label"><b aria-hidden="true">✎</b> 01 / WRITE</span><h2 id="write-heading">Write your paragraph.</h2></div><span class="count-pill" id="progress-label">0 / 3 written</span></div>
+      <div class="tabs-container"><div class="sentence-tabs section-tabs" id="sentence-tabs" role="tablist" aria-label="Paragraph sections"></div></div>
+      <div id="sentence-panel" role="tabpanel" aria-labelledby="section-tab-introduction">
+        <div class="sentence-heading"><span class="role-tag" id="role-tag">INTRODUCTION</span><span class="section-tip">One sentence in each box</span></div>
+        <h3 id="sentence-title">Introduce your main idea.</h3><p id="sentence-prompt" class="prompt">Tell your reader what this paragraph is about.</p>
+        <div id="sentence-list" class="sentence-list"></div>
+        <button id="add-btn" class="add-sentence introduction" data-add-role="introduction" type="button" aria-label="Add a sentence to Introduction"><b aria-hidden="true">+</b><span>Add sentence</span></button>
+        <p id="section-limit" class="section-limit" hidden></p>
+        <div class="starters"><span>Starters for the selected sentence</span><div id="starter-buttons"></div></div>
+        <div class="sentence-nav"><button class="button secondary" id="prev-btn">← Previous section</button><button class="button primary" id="next-btn">Body <span aria-hidden="true">→</span></button></div>
+      </div>
+    </section>
+    <section class="paragraph-panel card" aria-labelledby="paragraph-heading">
+      <div class="panel-heading"><div><span class="step-label"><b aria-hidden="true">✦</b> 02 / CONNECT</span><h2 id="paragraph-heading">Your paragraph</h2></div><span class="live-pill"><i></i> LIVE</span></div>
+      <div class="paragraph-paper"><div class="paper-head"><span id="paper-title">A little idea, taking shape</span><span aria-hidden="true">✦</span></div><div id="paragraph-empty"><div class="empty-illustration" aria-hidden="true"><div class="mini-page"><i></i><i></i><i></i><span class="mini-face"><b></b><b></b><i></i></span></div><span class="mini-pencil">✎</span></div><h3>It starts with one sentence.</h3><p>Your sentences will come together here<br>as one connected paragraph.</p></div><p id="paragraph-text" hidden></p></div>
+      <div class="structure-legend"><span><i class="dot purple"></i>Introduction</span><span><i class="dot orange"></i>Body</span><span><i class="dot pink"></i>Conclusion</span></div>
+      <div class="paragraph-meta"><span id="paragraph-words">0 words</span><span id="paragraph-progress">Your story starts on the left</span></div>
+      <button class="button primary check-button" id="check-btn"><span aria-hidden="true">✓</span> Check my paragraph</button>
+      <div class="check-result" id="check-result" role="status"></div>
+      <div class="export-actions"><button id="copy-btn" disabled>Copy paragraph</button><button id="download-btn" disabled>Download .txt</button><button id="print-btn" disabled>Print</button></div>
+      <p class="review-note"><span class="underlined">Red underline</span> = something to explore. Tap it for a clue.</p>
+    </section>
+  </div>
+  <section class="learning-strip"><span class="spark-icon" aria-hidden="true">✧</span><p><strong>A good writer is a good reviser.</strong> Read your paragraph aloud. Does every sentence support your main idea?</p><span class="strip-doodle" aria-hidden="true">↗</span></section>
+  <footer><span>Created by: <strong>Ms. Amina Qatan</strong></span><button id="about-btn">About the checks</button><span>Write. Connect. Grow.</span></footer>
+</main>
+<dialog id="info-dialog"><button class="dialog-close quiet" aria-label="Close dialog">×</button><div id="dialog-content"></div><button class="button primary dialog-done">Got it</button></dialog>
+<dialog id="confirm-dialog"><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button class="button secondary" id="confirm-cancel">Keep writing</button><button class="button primary" id="confirm-ok">Continue</button></div></dialog>
+<div id="toast" class="toast" role="status"></div>
+<script type="module" src="app.js"></script>
+</body></html>
